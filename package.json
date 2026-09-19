@@ -1,7 +1,7 @@
 {
   "name": "infinite-scroll",
   "version": "0.0.0",
-  "description": "",
+  "description": "Enable Infinite scroll for Post Template Blocks inside a query loop",
   "author": "mcguffin",
   "license": "GPL-3.0-or-later",
   "scripts": {
