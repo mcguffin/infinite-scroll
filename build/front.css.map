@@ -1,0 +1,1 @@
+{"version":3,"file":"front.css","mappings":";;;AACC;EACC;AAAF,C","sources":["webpack://infinite-scroll/./src/front.scss"],"sourcesContent":[".infinite-scroll-marker {\n\t.is-layout-grid > :is(&) {\n\t\tgrid-colum: 1/-1;\n\t}\t\n}\n\n"],"names":[],"sourceRoot":""}

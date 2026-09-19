@@ -1,0 +1,13 @@
+{
+  "name": "infinite-scroll",
+  "scripts": {
+    "build": "wp-scripts build src/index.js src/front.js",
+    "start": "wp-scripts start src/index.js src/front.js"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^28.6.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^8.0.5"
+  }
+}

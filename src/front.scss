@@ -1,0 +1,6 @@
+.infinite-scroll-marker {
+	.is-layout-grid > :is(&) {
+		grid-colum: 1/-1;
+	}	
+}
+
