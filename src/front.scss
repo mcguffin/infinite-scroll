@@ -1,6 +1,75 @@
-.infinite-scroll-marker {
-	.is-layout-grid > :is(&) {
-		grid-colum: 1/-1;
-	}	
+
+@keyframes loading-shimmer {
+	from {
+		background-position: 0% 200%;
+	}
+	to {
+		background-position: 0% -200%;
+	}
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
+.infinite-scroll-container {
+	.is-layout-grid > :is(&) {
+		grid-column: 1/-1;
+	}
+}
+
+.infinite-scroll-ghost {
+
+	.wp-block-cover {
+		background: linear-gradient(
+			0deg,
+			#00000030,
+			#0000000f,
+			#00000030
+		);
+		background-size: 100% 200%;
+		animation: loading-shimmer 10s linear infinite;
+		background-attachment: fixed;
+		// background-position: 0% 0%;
+	}
+	.wp-block-cover__background {
+		display: none;
+	}
+	img {
+		filter: brightness(0) opacity(0);
+	}
+	h1,h2,h3,h4,h5,h6,p {
+		span {
+			max-height: 1em;
+			color: #0000;
+			background: rgba( 0 0 0 / 0.2 );
+			background-color: rgba( 0 0 0 / 0.0 );
+			background-image: linear-gradient(
+				to bottom,
+				#0000,
+				#0000 calc(1em - 1cap),
+				#0004 calc(1em - 1cap),
+				#0004 calc(1em),
+				#0000 calc(1em)
+			);
+		}
+	}
+}
+
+.infinite-scroll-spinner {
+	&::before {
+		content: '';
+		display: block;
+		width: 1lh;
+		height: 1lh;
+		border-radius: 2lh;
+		margin: auto;
+		border: 4px solid currentColor;
+		border-left-color: #0000;
+		animation: spin 3s linear infinite;
+	}
+}

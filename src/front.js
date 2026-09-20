@@ -1,17 +1,30 @@
 import './front.scss';
 
-const triggerSelector = '.infinite-scroll-trigger';
+const containerSelector  = '.infinite-scroll-container';
+const triggerSelector      = '.infinite-scroll-trigger';
+const buttonSelector       = '.infinite-scroll-button';
 
 const more = trigger => {
-	console.log(trigger)
-	const node = document.createElement('div')
-	const url  = `/wp-admin/admin-ajax.php?action=load_more&page=${trigger.getAttribute('data-page')}&block=${trigger.getAttribute('data-block-key')}&query=${trigger.getAttribute('data-query-key')}`;
+	const node      = document.createElement('div')
+	const container = trigger.closest(containerSelector)
+	const url       = `/wp-admin/admin-ajax.php?action=load_more&page=${container.getAttribute('data-page')}&block=${container.getAttribute('data-block-key')}&query=${container.getAttribute('data-query-key')}`;
 
-	// TODO add spinner
+	const placeholderNodes = []
+
+	const template = container.querySelector('template')
+	if ( template ) {
+		placeholderNodes.push(...Array.from(template.content.childNodes))
+		container.replaceWith(...placeholderNodes)
+	} else {
+		placeholderNodes.push(placeholder)
+	}
 
 	fetch( url ).then( async response => {
 		node.innerHTML = await response.text()
-		trigger.replaceWith( ...node.querySelectorAll('ul>li') )
+		placeholderNodes[0].replaceWith( ...node.querySelectorAll('ul>li') )
+		placeholderNodes.map(el=>el.remove())
+		// apply styles
+		document.querySelector('#block-style-variation-styles-inline-css').innerText += node.querySelector('style').innerText;
 	})
 }
 
@@ -44,9 +57,14 @@ document.querySelectorAll(triggerSelector).forEach( observeTrigger )
 
 const domObserver = new MutationObserver( ( mutations, domObserver ) => {
 	Array.from(mutations).forEach( entry => {
-
-		// endless scroll observer
 		entry.target.querySelectorAll(triggerSelector).forEach( observeTrigger )
 	} )
 } );
 domObserver.observe( document.body, { subtree: true, childList: true } );
+
+
+document.addEventListener('click',e => {
+	if ( e.target.closest('button')?.matches(buttonSelector) ) {
+		more(e.target.closest('button'))
+	}
+})

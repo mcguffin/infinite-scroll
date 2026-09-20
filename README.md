@@ -16,3 +16,7 @@ Installation
  - cd into your plugin directory
  - $ `git clone git@github.com:mcguffin/infinite-scroll.git`
  - $ `wp plugin activate infinite-scroll-export`
+
+Plugin Hooks
+------------
+### `infinite-scroll/spinner`
