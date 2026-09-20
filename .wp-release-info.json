@@ -1,9 +1,9 @@
 {
   "id": "https://github.com/mcguffin/infinite-scroll/raw/main/.wp-release-info.json",
   "slug": "infinite-scroll",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "url": "https://github.com/mcguffin/infinite-scroll",
-  "package": "https://github.com/mcguffin/infinite-scroll/releases/download/0.0.0/infinite-scroll.zip",
+  "package": "https://github.com/mcguffin/infinite-scroll/releases/download/0.0.1/infinite-scroll.zip",
   "tested": "7.1",
   "requires_php": "8.2"
 }

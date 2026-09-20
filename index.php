@@ -5,7 +5,7 @@
  * Description: Enable Infinite scroll for Post Template Blocks inside a query loop
  * Author: mcguffin
  * Author URI: https://github.com/mcguffin
- * Version: 0.0.0
+ * Version: 0.0.1
  * Requires PHP: 7.4
  * Text Domain: infinite-scroll
  * License: GPL2+
