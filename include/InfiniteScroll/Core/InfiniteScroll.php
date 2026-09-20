@@ -86,6 +86,7 @@ class InfiniteScroll extends Plugin {
 			$args['attributes']['buttonStyle'] = array(
 				'type'    => 'string',
 				'enum'    => [],
+				'default' => 'fill'
 			);
 			$args['attributes']['buttonLabel'] = array(
 				'type'    => 'string',
